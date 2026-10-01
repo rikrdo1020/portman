@@ -1,0 +1,9 @@
+.build/
+build/
+*.o
+*.d
+.DS_Store
+.vscode/
+*.xcodeproj
+*.xcworkspace
+DerivedData/
