@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="logo.png" width="96" alt="Portman" />
+</p>
+
 # Portman
 
 A native macOS menu bar app to monitor and kill development services running in the background — TCP ports, Docker containers, CPU usage, and idle detection.
