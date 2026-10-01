@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
-# Builds ServicesPanel.app for macOS (arm64 or universal)
+# Builds Portman.app for macOS (arm64 or universal)
 set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 BUILD_DIR="$PROJECT_ROOT/build"
-APP_NAME="ServicesPanel"
+APP_NAME="Portman"
 APP="$BUILD_DIR/$APP_NAME.app"
 CONTENTS="$APP/Contents"
 ARCH="${1:-arm64}"  # pass "universal" to build fat binary

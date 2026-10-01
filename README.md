@@ -1,4 +1,4 @@
-# Services Panel
+# Portman
 
 A native macOS menu bar app to monitor and kill development services running in the background — TCP ports, Docker containers, CPU usage, and idle detection.
 
@@ -13,7 +13,7 @@ A native macOS menu bar app to monitor and kill development services running in 
 
 You start a Next.js dev server, spin up a Postgres container, run a background API — then close your laptop and forget about all of it. Hours later your battery is drained and fans are spinning. There was nothing in your menu bar telling you any of those processes were still running.
 
-Services Panel fixes that.
+Portman fixes that.
 
 ---
 
@@ -58,10 +58,10 @@ Services Panel fixes that.
 ### Option A — Build from source
 
 ```bash
-git clone https://github.com/rikrdo1020/localhost-services-panel.git
-cd localhost-services-panel
+git clone https://github.com/rikrdo1020/portman.git
+cd portman
 ./Scripts/bundle.sh
-open build/ServicesPanel.app
+open build/Portman.app
 ```
 
 To install to `/Applications` and optionally add a Login Item:
@@ -72,7 +72,7 @@ To install to `/Applications` and optionally add a Login Item:
 
 ### Option B — Download release
 
-Download the latest `.app` from the [Releases](https://github.com/rikrdo1020/localhost-services-panel/releases) page, unzip, and drag to `/Applications`.
+Download the latest `.app` from the [Releases](https://github.com/rikrdo1020/portman/releases) page, unzip, and drag to `/Applications`.
 
 > **Gatekeeper notice:** The app is ad-hoc signed (not notarized). On first launch, right-click → Open if macOS blocks it.
 
@@ -162,7 +162,7 @@ Killing the process **group** (not just the pid) ensures workers, watchers, and 
 ## Project structure
 
 ```
-Sources/ServicesPanel/
+Sources/Portman/
 ├── App/
 │   ├── ServicesPanelApp.swift   @main entry point
 │   └── AppDelegate.swift        NSStatusItem + NSPopover, click handling
@@ -198,13 +198,13 @@ Scripts/
 ### `Scripts/bundle.sh`
 
 1. Runs `swift build -c release --arch arm64`
-2. Assembles `ServicesPanel.app/Contents/{MacOS,Resources}`
+2. Assembles `Portman.app/Contents/{MacOS,Resources}`
 3. Copies `Info.plist`, `AppIcon.icns`, and all resource files
 4. Ad-hoc signs with `codesign --force --sign -`
 
 ### `Scripts/install.sh`
 
-Copies `build/ServicesPanel.app` to `/Applications` and optionally writes a `LaunchAgent` plist at `~/Library/LaunchAgents/com.ricardobarria.services-panel.plist` so the app starts at login.
+Copies `build/Portman.app` to `/Applications` and optionally writes a `LaunchAgent` plist at `~/Library/LaunchAgents/com.ricardobarria.portman.plist` so the app starts at login.
 
 ---
 
@@ -222,12 +222,12 @@ Pull requests welcome.
 
 ```bash
 # Clone and build
-git clone https://github.com/rikrdo1020/localhost-services-panel.git
-cd localhost-services-panel
+git clone https://github.com/rikrdo1020/portman.git
+cd portman
 swift build
 
 # Run (note: must be the .app bundle to appear in menu bar)
-./Scripts/bundle.sh && open build/ServicesPanel.app
+./Scripts/bundle.sh && open build/Portman.app
 ```
 
 Issues, feature ideas, and port denylist additions (for noisy system processes on your machine) are especially welcome — the classifier is only as good as the denylist.

@@ -2,12 +2,12 @@
 import PackageDescription
 
 let package = Package(
-    name: "ServicesPanel",
+    name: "Portman",
     platforms: [.macOS(.v14)],
     targets: [
         .executableTarget(
-            name: "ServicesPanel",
-            path: "Sources/ServicesPanel"
+            name: "Portman",
+            path: "Sources/Portman"
         )
     ]
 )

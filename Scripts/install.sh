@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
-# Installs ServicesPanel.app to /Applications and optionally adds a LaunchAgent
+# Installs Portman.app to /Applications and optionally adds a LaunchAgent
 set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
-APP="$PROJECT_ROOT/build/ServicesPanel.app"
-DEST="/Applications/ServicesPanel.app"
+APP="$PROJECT_ROOT/build/Portman.app"
+DEST="/Applications/Portman.app"
 LAUNCH_AGENTS="$HOME/Library/LaunchAgents"
-PLIST_PATH="$LAUNCH_AGENTS/com.ricardobarria.services-panel.plist"
+PLIST_PATH="$LAUNCH_AGENTS/com.ricardobarria.portman.plist"
 
 if [[ ! -d "$APP" ]]; then
     echo "App not built yet. Run ./Scripts/bundle.sh first."
@@ -28,10 +28,10 @@ if [[ "$response" =~ ^[Yy]$ ]]; then
 <plist version="1.0">
 <dict>
     <key>Label</key>
-    <string>com.ricardobarria.services-panel</string>
+    <string>com.ricardobarria.portman</string>
     <key>ProgramArguments</key>
     <array>
-        <string>/Applications/ServicesPanel.app/Contents/MacOS/ServicesPanel</string>
+        <string>/Applications/Portman.app/Contents/MacOS/Portman</string>
     </array>
     <key>RunAtLoad</key>
     <true/>
